@@ -1,0 +1,64 @@
+@import '../../shared/styles/terminal.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.terminal-output {
+  line-height: 10px;
+  padding-bottom: 0px !important;
+}
+
+.terminal-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+
+  span {
+    margin-right: 15px;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+span.invalid {
+  color: red !important;
+}
+
+span.valid {
+  color: green !important;
+}
+
+.command-setter {
+  background: transparent;
+  border: none;
+  color: #1976d2;
+  outline: none;
+}
+
+@keyframes fadeInOut {
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.terminal-input-info {
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+
+img {
+  margin-top: 30px;
+}

@@ -1,0 +1,25 @@
+<h2>Sharing State between components</h2>
+<div class="counter-holder">
+  <mat-form-field>
+    <input matInput #counterInput type="number" [value]="counter$ | async" (change)="setValue(counterInput.value)" />
+  </mat-form-field>
+
+
+  <button mat-icon-button class="primary-bg" (click)="increment()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button mat-icon-button class="primary-bg" (click)="decrement()">
+    <mat-icon>remove</mat-icon>
+  </button>
+  <button mat-icon-button class="primary-bg" (click)="refresh()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</div>
+
+<div class="container">
+  <app-store-consumer-one></app-store-consumer-one>
+  <mat-divider class="vertical-divider"></mat-divider>
+  <app-store-consumer-two></app-store-consumer-two>
+</div>
+
+<mat-divider class="horizontal-divider"></mat-divider>

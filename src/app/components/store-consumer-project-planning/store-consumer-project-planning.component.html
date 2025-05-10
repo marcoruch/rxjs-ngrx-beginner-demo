@@ -1,0 +1,77 @@
+<h3>Store consumer Project planning</h3>
+
+<h4>Projects</h4>
+<div class="projects">
+  <mat-chip-listbox>
+    <mat-chip *ngFor="let project of projects$ | async" [value]="project">
+      {{ project.name }} - {{ project.neededTime }} Hours per Month
+    </mat-chip>
+  </mat-chip-listbox>
+</div>
+<mat-divider class="horizontal-divider"></mat-divider>
+
+<h4>Members</h4>
+<div class="members">
+  <mat-chip-listbox>
+    <mat-chip *ngFor="let member of members$ | async" [value]="member">
+      {{ member.name }}
+    </mat-chip>
+  </mat-chip-listbox>
+
+  <mat-divider class="horizontal-divider"></mat-divider>
+
+  <h4>Planning States</h4>
+  <div class="planning-stat-holder" *ngFor="let status of projectsPlanningStatus$ | async">
+    <div class="planning-stat">
+      <span class="project-title">{{ status.name }}</span>
+      <div class="planning-stat-info">
+        <span class="planning-stat-info-label">Needed Time:</span>
+        <span class="planning-stat-info-value">{{ status.totalTime }} Hours</span>
+      </div>
+      <div class="planning-stat-info">
+        <span class="planning-stat-info-label">Planned Time:</span>
+        <span class="planning-stat-info-value">{{ status.plannedTime }} Hours</span>
+      </div>
+      <div class="planning-stat-info">
+        <span class="planning-stat-info-label">Missing Time:</span>
+        <span class="planning-stat-info-value"
+          [ngClass]="{'good': status.remainingTimeToPlan === 0, 'not-enough': status.remainingTimeToPlan > 0, 'overboarded': status.remainingTimeToPlan < 0}">{{
+          status.remainingTimeToPlan }} Hours</span>
+      </div>
+    </div>
+  </div>
+
+
+  <mat-divider class="horizontal-divider"></mat-divider>
+
+  <!-- expansion -->
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let membersAndTheirPlannedResources of membersAndTheirPlannedResources$ | async">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ membersAndTheirPlannedResources.memberName }}
+        </mat-panel-title>
+        <mat-panel-description>
+          Planned in {{ membersAndTheirPlannedResources.plannedResources.length }}-Times
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="planned-ressources">
+        <mat-list>
+          <mat-list-item *ngFor="let plannedRessource of membersAndTheirPlannedResources.plannedResources">
+            <div class="planned-ressource">
+              <div class="planned-ressource-info">
+                <span class="planned-ressource-info-label">Project:</span>
+                <span class="planned-ressource-info-value">{{ plannedRessource.project.name }}</span>
+              </div>
+              <div class="planned-ressource-info">
+                <span class="planned-ressource-info-label">Time:</span>
+                <span class="planned-ressource-info-value">{{ plannedRessource.time }} Hours</span>
+              </div>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-divider class="horizontal-divider"></mat-divider>

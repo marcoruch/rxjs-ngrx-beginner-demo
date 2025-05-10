@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+:host {
+  position: absolute;
+  height: 80vh;
+  width: 90vw;
+  overflow: hidden;
+}

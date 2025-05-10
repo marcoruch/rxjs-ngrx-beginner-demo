@@ -1,0 +1,13 @@
+@import '../../shared/styles/terminal.scss';
+
+:host {
+  display: flex;
+  flex-direction: row;
+}
+
+span:is(.isTrue) {
+  color: green;
+}
+span:not(.isTrue) {
+  color: red;
+}

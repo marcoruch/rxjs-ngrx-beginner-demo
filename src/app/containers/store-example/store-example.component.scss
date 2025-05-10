@@ -1,0 +1,35 @@
+.primary-bg {
+  background-color: #1976d2;
+  color: white;
+}
+
+.primary-bg mat-icon {
+  color: white;
+}
+
+.counter-holder {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: row;
+
+  button {
+    margin-left: 15px;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.horizontal-divider {
+  border-bottom: 1px solid #ccc;
+  margin: 15px 0;
+}
+
+.vertical-divider {
+  border-left: 1px solid #ccc;
+  margin: 0 15px;
+}

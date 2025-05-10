@@ -1,0 +1,5 @@
+<button mat-raised-button (click)="onEnd()">Complete questions!</button>
+
+<div *ngFor="let button of buttons" [ngStyle]="{'position': 'absolute', 'top': button.topPercent + '%', 'left': button.leftPercent + '%'}">
+  <button mat-raised-button>Any questions?</button>
+</div>

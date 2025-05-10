@@ -1,0 +1,19 @@
+<h3>Store updater Project planning</h3>
+
+<h4>Example Commands: </h4>
+<mat-chip-listbox>
+  <mat-chip *ngFor="let command of exampleCommands" [value]="command" (click)="runExampleCommand(command)">
+    {{ command }}
+  </mat-chip>
+</mat-chip-listbox>
+
+<div class="terminal">
+  <pre class="terminal-output" *ngFor="let command of ranCommands$ | async">
+    <span [ngClass]="{ 'invalid': command.valid === false, 'valid': command.valid }">{{ command.command }}</span>
+  </pre>
+  <pre class="terminal-input">
+    <span class="terminal-input-info">></span> <input class="command-setter" matInput #textInput type="text" (keyup)="inputKeyUp(textInput, $event);" />
+  </pre>
+</div>
+
+<img width="800" src="https://v8.ngrx.io/generated/images/guide/store/state-management-lifecycle.png" />

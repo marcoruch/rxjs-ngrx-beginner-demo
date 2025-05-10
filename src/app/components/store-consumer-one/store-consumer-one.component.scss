@@ -1,0 +1,6 @@
+@import '../../shared/styles/terminal.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+}

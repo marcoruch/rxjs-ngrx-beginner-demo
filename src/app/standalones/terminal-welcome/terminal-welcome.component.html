@@ -1,0 +1,5 @@
+<div class="terminal">
+
+  <pre>√ Welcome to our rxjs playground!</pre>
+  <pre *ngFor="let line of lines$ | async">Loading {{ line }}%... {{ line == 100 ? '😎👍' : '⏳'}}</pre>
+</div>

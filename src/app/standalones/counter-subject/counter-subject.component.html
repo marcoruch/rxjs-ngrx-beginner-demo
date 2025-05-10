@@ -1,0 +1,9 @@
+<div class="counter">
+  <p>Counter by value: {{ counterClicks$.value }}</p>
+  <p>Counter by subscribing: {{ counterClicks$ | async }}</p>
+  <p>Counter clicks Times-Ten: {{ counterClicksTimesTen$ | async }}</p>
+  <button style="margin-bottom: 30px;" mat-raised-button (click)="increase()">Increase</button>
+  <div class="terminal">
+    <pre *ngFor="let line of counterClickLines$ | async">{{ line }}</pre>
+  </div>
+</div>

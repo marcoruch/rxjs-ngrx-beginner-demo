@@ -1,0 +1,9 @@
+<div class="thinker">
+  <button mat-raised-button (click)="switchThoughts()">{{ isThinking.value ? 'Stop' : 'Start' }} thinking...</button>
+  <h4>Any is a question: <span [ngClass]="{ 'isTrue': anyThoughtIsAQuestion$ | async }">{{ anyThoughtIsAQuestion$ | async }}</span></h4>
+  <h4>Any is a decision: <span [ngClass]="{ 'isTrue': anyThoughtIsADecision$ | async }">{{ anyThoughtIsADecision$ | async }}</span></h4>
+  <div class="terminal">
+    <pre *ngFor="let thought of thoughts$ | async">{{thought}}</pre>
+    <pre *ngIf="isThinking.value">{{ thinkingDots$ | async }}</pre>
+  </div>
+</div>
